@@ -1,42 +1,42 @@
 #include <stdio.h>
 #include <math.h>
+#include <stdbool.h>
+#include <string.h>
 
-int gl = 5;
+bool floatIsInt(float num) {
+  return (int)num == num;
+}
+
+float printNumberFacts(float num) {
+  if(num > 0) {
+    if(floatIsInt(num)) {
+      printf("%f is an integer\n", num);
+      if(floatIsInt(sqrt(num))) {
+        printf("%f's square, %f is an integer\n", num, sqrt(num));
+      }
+    }
+    printf("%f is positive\n", num);
+  } else if(num == 0) {
+    printf("%f is zero\n", num);
+  } else {
+    printf("%f is negative\n", num);
+  }
+  return num;
+}
+
+
 
 int main() {
-  printf("Example C program\n");
-  printf("gl=%d\n", gl);
 
-  int i = 7;
-  float f;
-  f = 3.28;
-  printf("i=%d  f=%f\n", i, f);
+  printf("### TESTING ###\n\n");
+  printf("--- 25 ---\n");
+  printNumberFacts(25.000);
+  printf("--- 17 ---\n");
+  printNumberFacts(17.000);
+  printf("--- 15 ---\n");
+  printNumberFacts(15.000);
 
-  i = i * gl;
-  f = f * gl;
-  printf("i=%d  f=%f\n", i, f);
-
-  printf("The square root of %d is %f\n", i, sqrt(i));
-
-  if (i < 10)
-    printf("%d is small\n", i);
-  else
-    printf("%d is not small\n", i);
-
-  if (i < 0)
-    printf("%d is negative\n", i);
-  else {
-    printf("%d is non-negative ", i);
-    printf("and the square root of %d is %f\n", i, sqrt(i));
-  }
-
-  if (i < 10)
-    printf("%d is small\n", i);
-  else if (i < 100)
-    printf("%d is medium\n", i);
-  else /* assert:  i >= 100 */
-    printf("%d is large\n", i);
-
-  return i;
+  return 0;
 
 }
+
