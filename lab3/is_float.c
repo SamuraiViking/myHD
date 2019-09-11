@@ -3,8 +3,18 @@
 #include <stdbool.h>
 #include <string.h>
 
-float printSign(float num) {
+bool floatIsInt(float num) {
+  return (int)num == num;
+}
+
+float printNumberFacts(float num) {
   if(num > 0) {
+    if(floatIsInt(num)) {
+      printf("%f is an integer\n", num);
+      if(floatIsInt(sqrt(num))) {
+        printf("%f's square, %f is an integer\n", num, sqrt(num));
+      }
+    }
     printf("%f is positive\n", num);
   } else if(num == 0) {
     printf("%f is zero\n", num);
@@ -14,19 +24,17 @@ float printSign(float num) {
   return num;
 }
 
-bool isInt(float num) {
-  return (int)num == num;
-}
-
-void printIsInt(float num) {
-  printf(isInt(num) ? "%f is an integer\n" : "%f is not an integer\n", num);
-}
 
 
 int main() {
 
-  printSign(7.3);
-  printIsInt(10.00);
+  printf("### TESTING ###\n\n");
+  printf("--- 25 ---\n");
+  printNumberFacts(25.000);
+  printf("--- 17 ---\n");
+  printNumberFacts(17.000);
+  printf("--- 15 ---\n");
+  printNumberFacts(15.000);
 
   return 0;
 
