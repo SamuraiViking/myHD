@@ -1,11 +1,25 @@
 #include <stdio.h>
+#include <math.h>
 
-int main() {
-  int num = 10;
-  int fact = 1;
-  for (int i = 1; i < num; i++) {
-    fact *= i;
+void printFactorialUpToNum(num)
+{
+  int factorial = 1;
+  for (int i = 0; i < num; i++)
+  {
+    if (i == 0 || i == 1)
+    {
+      printf("%d: %d\n", i, factorial);
+    }
+    else
+    {
+      factorial *= i;
+      printf("%d: %d\n", i, factorial);
+    }
   }
-  printf("The factorial of %d is %d\n", num,fact);
+}
+
+int main()
+{
+  printFactorialUpToNum(10);
   return 0;
 }
