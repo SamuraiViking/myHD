@@ -6,6 +6,6 @@ int main() {
   for (int i = 1; i < num; i++) {
     fact *= i;
   }
-  printf("%d\n", fact);
+  printf("The factorial of %d is %d\n", num,fact);
   return 0;
 }
